@@ -1,0 +1,14 @@
+C:\repo\Pinball\DMD\obj\Debug\Pinball.vbprojResolveAssemblyReference.cache
+C:\repo\Pinball\DMD\obj\Debug\Pinball.FormDMD.resources
+C:\repo\Pinball\DMD\obj\Debug\Pinball.Resources.resources
+C:\repo\Pinball\DMD\obj\Debug\Pinball.UserControlCPinball.resources
+C:\repo\Pinball\DMD\obj\Debug\Pinball.UserControlDMD.resources
+C:\repo\Pinball\DMD\obj\Debug\Pinball.vbproj.GenerateResource.cache
+C:\repo\Pinball\DMD\obj\Debug\Pinball.vbproj.CoreCompileInputs.cache
+C:\repo\Pinball\DMD\bin\Debug\Pinball.exe.config
+C:\repo\Pinball\DMD\bin\Debug\Pinball.exe
+C:\repo\Pinball\DMD\bin\Debug\Pinball.pdb
+C:\repo\Pinball\DMD\bin\Debug\Pinball.xml
+C:\repo\Pinball\DMD\obj\Debug\Pinball.exe
+C:\repo\Pinball\DMD\obj\Debug\Pinball.xml
+C:\repo\Pinball\DMD\obj\Debug\Pinball.pdb

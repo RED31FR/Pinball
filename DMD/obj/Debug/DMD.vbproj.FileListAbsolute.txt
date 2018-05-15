@@ -1,0 +1,26 @@
+C:\Users\user\AppData\Local\Temporary Projects\DMD\bin\Debug\DMD.exe.config
+C:\Users\user\AppData\Local\Temporary Projects\DMD\bin\Debug\DMD.exe
+C:\Users\user\AppData\Local\Temporary Projects\DMD\bin\Debug\DMD.pdb
+C:\Users\user\AppData\Local\Temporary Projects\DMD\bin\Debug\DMD.xml
+C:\Users\user\AppData\Local\Temporary Projects\DMD\obj\Debug\DMD.vbprojResolveAssemblyReference.cache
+C:\Users\user\AppData\Local\Temporary Projects\DMD\obj\Debug\DMD.Resources.resources
+C:\Users\user\AppData\Local\Temporary Projects\DMD\obj\Debug\DMD.UserControlDMD.resources
+C:\Users\user\AppData\Local\Temporary Projects\DMD\obj\Debug\DMD.vbproj.GenerateResource.cache
+C:\Users\user\AppData\Local\Temporary Projects\DMD\obj\Debug\DMD.vbproj.CoreCompileInputs.cache
+C:\Users\user\AppData\Local\Temporary Projects\DMD\obj\Debug\DMD.exe
+C:\Users\user\AppData\Local\Temporary Projects\DMD\obj\Debug\DMD.xml
+C:\Users\user\AppData\Local\Temporary Projects\DMD\obj\Debug\DMD.pdb
+C:\Users\user\source\repos\DMD\DMD\bin\Debug\DMD.exe.config
+C:\Users\user\source\repos\DMD\DMD\bin\Debug\DMD.exe
+C:\Users\user\source\repos\DMD\DMD\bin\Debug\DMD.pdb
+C:\Users\user\source\repos\DMD\DMD\bin\Debug\DMD.xml
+C:\Users\user\source\repos\DMD\DMD\obj\Debug\DMD.Resources.resources
+C:\Users\user\source\repos\DMD\DMD\obj\Debug\DMD.UserControlDMD.resources
+C:\Users\user\source\repos\DMD\DMD\obj\Debug\DMD.vbproj.GenerateResource.cache
+C:\Users\user\source\repos\DMD\DMD\obj\Debug\DMD.vbproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\DMD\DMD\obj\Debug\DMD.exe
+C:\Users\user\source\repos\DMD\DMD\obj\Debug\DMD.xml
+C:\Users\user\source\repos\DMD\DMD\obj\Debug\DMD.pdb
+C:\Users\user\source\repos\DMD\DMD\obj\Debug\DMD.UserControlCPinball.resources
+C:\Users\user\source\repos\DMD\DMD\obj\Debug\DMD.FormDMD.resources
+C:\Users\user\source\repos\DMD\DMD\obj\Debug\DMD.vbprojResolveAssemblyReference.cache
