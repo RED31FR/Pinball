@@ -90,10 +90,17 @@
     <Compile Include="CDMD.vb" />
     <Compile Include="CPinball.vb" />
     <Compile Include="CPinballEvent.vb" />
+    <Compile Include="CPinballPart.vb" />
     <Compile Include="FormDMD.Designer.vb">
       <DependentUpon>FormDMD.vb</DependentUpon>
     </Compile>
     <Compile Include="FormDMD.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPlayField.Designer.vb">
+      <DependentUpon>FormPlayField.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormPlayField.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -111,6 +118,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="UserControlBumper.Designer.vb">
+      <DependentUpon>UserControlBumper.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlBumper.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UserControlCPinball.Designer.vb">
       <DependentUpon>UserControlCPinball.vb</DependentUpon>
     </Compile>
@@ -123,10 +136,49 @@
     <Compile Include="UserControlDMD.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="UserControlLamp.Designer.vb">
+      <DependentUpon>UserControlLamp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlLamp.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlLane.Designer.vb">
+      <DependentUpon>UserControlLane.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlLane.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlLanes.Designer.vb">
+      <DependentUpon>UserControlLanes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlLanes.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlSwitch.Designer.vb">
+      <DependentUpon>UserControlSwitch.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlSwitch.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlTarget.Designer.vb">
+      <DependentUpon>UserControlTarget.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlTarget.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlTargets.Designer.vb">
+      <DependentUpon>UserControlTargets.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlTargets.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="FormDMD.resx">
       <DependentUpon>FormDMD.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPlayField.resx">
+      <DependentUpon>FormPlayField.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -134,11 +186,32 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControlBumper.resx">
+      <DependentUpon>UserControlBumper.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControlCPinball.resx">
       <DependentUpon>UserControlCPinball.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlDMD.resx">
       <DependentUpon>UserControlDMD.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlLamp.resx">
+      <DependentUpon>UserControlLamp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlLane.resx">
+      <DependentUpon>UserControlLane.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlLanes.resx">
+      <DependentUpon>UserControlLanes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlSwitch.resx">
+      <DependentUpon>UserControlSwitch.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlTarget.resx">
+      <DependentUpon>UserControlTarget.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlTargets.resx">
+      <DependentUpon>UserControlTargets.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

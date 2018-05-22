@@ -347,7 +347,7 @@ Public Class CDMDString
     End Property
 
     Public Sub New(fontPath As String, pixelSize As Integer, Optional space As Integer = 1)
-        Dim letters(64) As String
+        Dim letters(65) As String
         Dim pos As Integer = 0
         Me.Space = 1
         letters(pos) = "al.png"
@@ -478,6 +478,7 @@ Public Class CDMDString
         pos = pos + 1
         letters(pos) = "zu.png"
         pos = pos + 1
+        letters(pos) = "slash.png"
         pos = pos + 1
         Me.Space = 0
         Me.PixelSize = 1
@@ -533,7 +534,6 @@ Public Class CDMDString
             Case "j"
                 AddCaracter(mLetters.ElementAt(9), x, y)
             Case "k"
-
                 AddCaracter(mLetters.ElementAt(10), x, y)
             Case "l"
                 AddCaracter(mLetters.ElementAt(11), x, y)
@@ -641,6 +641,8 @@ Public Class CDMDString
                 AddCaracter(mLetters.ElementAt(62), x, y)
             Case "Z"
                 AddCaracter(mLetters.ElementAt(63), x, y)
+            Case "/"
+                AddCaracter(mLetters.ElementAt(64), x, y)
         End Select
     End Sub
 
@@ -650,6 +652,7 @@ Public Class CDMDString
         addString(s, (size - mString.NBColsForString) / 2)
         mString = Nothing
     End Sub
+
     Public Sub addString(s As String, Optional x As Integer = 0, Optional y As Integer = 0)
         If x < 0 Then x = 0
         For Each c In s
@@ -670,8 +673,18 @@ Public Class CDMDAnimation
     Protected Property mPos As Integer = 0
     Protected Property mDuration As Integer
     Protected Property mTimer As New Timer
+    Protected Property mStayOnLAstImage As Integer
 
     Public Event OnEndAnimation()
+
+    Public Property StayOnLastImage As Integer
+        Get
+            Return mStayOnLAstImage
+        End Get
+        Set(value As Integer)
+            mStayOnLAstImage = value
+        End Set
+    End Property
 
     Public Property Interval As Integer
         Get
@@ -710,16 +723,25 @@ Public Class CDMDAnimation
     End Sub
 
     Public Overrides Sub update()
-        MyBase.update()
-        Me.mPixels.Clear()
-        Me.addImageAt(mImages.ElementAt(mPos))
-        mPos += 1
-        If mPos > mImages.Count - 1 Then
-            mPos = 0
+        'MyBase.update()
+        mNbUpdate -= 1
+        If mNbUpdate < 0 And mStayOnLAstImage < 0 And mCanBeDisable Then
+            Me.Enable = False
+        End If
+        If mNbUpdate < 0 Then
+            mStayOnLAstImage -= 1
+        Else
+            Me.mPixels.Clear()
+            Me.addImageAt(mImages.ElementAt(mPos))
+            mPos += 1
+            If mPos > mImages.Count - 1 Then
+                mPos = 0
+            End If
         End If
         If Not Me.Enable Then
             RaiseEvent OnEndAnimation()
         End If
+
     End Sub
 End Class
 
@@ -914,6 +936,13 @@ Public Class CPinballDMD
     Protected Property mCredit As Integer = 0
     Protected Property mPlayers As New List(Of CPinballPlayer)
     Protected Property mCurentPlayer As CPinballPlayer = Nothing
+    Protected Property mAnimationInProgress As Boolean = False
+
+    Public ReadOnly Property AnimationInProgress As Boolean
+        Get
+            Return Me.mAnimationInProgress
+        End Get
+    End Property
 
     Public Property DMDScore As CDMDScreen
         Get
@@ -950,14 +979,18 @@ Public Class CPinballDMD
         End Get
         Set(value As Integer)
             mCredit = value
-            mStringInfo.clearString()
-            If mCurentPlayer IsNot Nothing Then
-                mStringInfo.addStringJustifie("Player " + mCurentPlayer.Index.ToString + "    ball " + mCurentPlayer.BallInGame.ToString + "     credits " + mCredit.ToString, mDMDInfo.NBCols)
-            Else
-                mStringInfo.addStringJustifie("add a Player            credits " + mCredit.ToString, mDMDInfo.NBCols)
-            End If
+            Me.updateDMDInfo
         End Set
     End Property
+
+    Public Sub updateDMDInfo()
+        mStringInfo.clearString()
+        If mCurentPlayer IsNot Nothing Then
+            mStringInfo.addStringJustifie("Player " + mCurentPlayer.Index.ToString + " / " + mPlayers.Count.ToString + "   ball " + mCurentPlayer.BallInGame.ToString + "    credits " + mCredit.ToString, mDMDInfo.NBCols)
+        Else
+            mStringInfo.addStringJustifie("add a Player            credits " + mCredit.ToString, mDMDInfo.NBCols)
+        End If
+    End Sub
 
     Public Sub New()
         mDMDScore = New CDMDScreen(128, 40, 10, 1)
@@ -1007,13 +1040,46 @@ Public Class CPinballDMD
     End Sub
 
     Public Sub TargetHit()
-        AddScore(150000)
+        AddScore(1000)
+    End Sub
+
+    Public Sub PutBallInGame()
+        'activate the solenoid to put ball in game.       
+    End Sub
+
+    Public Sub GameOver()
+        mStringInfo.clearString()
+        mStringInfo.addStringJustifie("GAME OVER", mDMDInfo.NBCols)
+        mPlayers.Remove(mCurentPlayer)
+        mCurentPlayer = Nothing
+    End Sub
+
+    Public Sub BallLeft(animation As CDMDAnimation)
+        If mCurentPlayer IsNot Nothing Then
+            If mCurentPlayer.BallInGame < 3 Then
+                Me.mCurentPlayer.BallInGame += 1
+
+                Me.PlayAnimation(animation)
+                'RemoveHandler animation.OnEndAnimation, AddressOf Me.OnEndAnimation
+                AddHandler animation.OnEndAnimation, AddressOf Me.OnBallLeftAnimationEnd
+            Else
+                GameOver()
+            End If
+            If mPlayers.Count > 1 Then
+                Dim position = mPlayers.IndexOf(mCurentPlayer) + 1
+                If position = mPlayers.Count Then
+                    position = 0
+                End If
+                mCurentPlayer = mPlayers.ElementAt(position)
+                Me.updateDMDInfo()
+            End If
+        End If
     End Sub
 
     Public Sub PlayAnimationBall()
-        If mCurentPlayer IsNot Nothing Then
+        If Not Me.AnimationInProgress Then
             Dim animation As New CDMDAnimation()
-            AddHandler animation.OnEndAnimation, AddressOf Me.OnEndAnimationBall
+            'AddHandler animation.OnEndAnimation, AddressOf Me.OnEndAnimationBall
             animation.addImage("C:\graphics\balls\ball01.png")
             animation.addImage("C:\graphics\balls\ball01.png", 5, 0)
             animation.addImage("C:\graphics\balls\ball01.png", 10, 0)
@@ -1041,52 +1107,69 @@ Public Class CPinballDMD
             animation.addImage("C:\graphics\balls\ball01.png", 120, 0)
             animation.addImage("C:\graphics\balls\ball01.png", 125, 0)
             animation.addImage("C:\graphics\balls\ball01.png", 130, 0)
-
-            'animation.addImage("C:\temp\test02.png")
-            'animation.addImage("C:\temp\test03.png")
             animation.Duration = 27
             animation.Interval = 10
+            'Me.mDMDScore.HideItems()
+            Me.PlayAnimation(animation)
+        End If
+    End Sub
+
+    Public Sub PlayAnimation(animation As CDMDAnimation)
+        If mCurentPlayer IsNot Nothing And Not Me.mAnimationInProgress Then
+            Me.mAnimationInProgress = True
+            AddHandler animation.OnEndAnimation, AddressOf Me.OnEndAnimation
             Me.mDMDScore.HideItems()
             Me.mDMDScore.addItem(animation)
             animation.update()
         End If
     End Sub
 
-    Private Sub OnEndAnimationBall()
+    Private Sub OnEndAnimation()
         Me.mDMDScore.ShowItems()
+        Me.mDMDScore.update()
+        Me.mAnimationInProgress = False
     End Sub
+
+    Private Sub OnBallLeftAnimationEnd()
+        'Me.mDMDScore.ShowItems()
+        'Me.mDMDScore.update()
+        'Me.mAnimationInProgress = False
+        PutBallInGame()
+    End Sub
+
+    'Private Sub OnEndAnimationBall()
+    'Me.mDMDScore.ShowItems()
+    'Me.mAnimationInProgress = False
+    'End Sub
 
     Public Sub PlayAnimation()
-        If mCurentPlayer IsNot Nothing Then
+        If Not Me.AnimationInProgress Then
             Dim animation As New CDMDAnimation()
-            'animation.addImage("C:\temp\test01.png")
-            'animation.addImage("C:\temp\test02.png")
-            'animation.addImage("C:\temp\test03.png")
-            animation.addImage("C:\graphics\sf2\ken01.png", 0, 3)
-            animation.addImage("C:\graphics\sf2\ken02.png", 0, 3)
-            animation.addImage("C:\graphics\sf2\ken03.png", 0, 3)
-            animation.addImage("C:\graphics\sf2\ken04.png", 0, 3)
-            animation.addImage("C:\graphics\sf2\ken05.png")
-            animation.addImage("C:\graphics\sf2\ken06.png")
-            animation.addImage("C:\graphics\sf2\ken07.png")
-            animation.addImage("C:\graphics\sf2\ken08.png")
-            animation.addImage("C:\graphics\sf2\ken09.png")
-            animation.addImage("C:\graphics\sf2\ken10.png")
-            animation.addImage("C:\graphics\sf2\ken11.png")
-            animation.addImage("C:\graphics\sf2\ken12.png")
-            animation.addImage("C:\graphics\sf2\ken13.png")
-            animation.addImage("C:\graphics\sf2\ken14.png")
-            animation.Duration = 14
-            animation.Interval = 50
-            AddHandler animation.OnEndAnimation, AddressOf OnEndAnimationBumper
-            Me.mDMDScore.HideItems()
-            Me.mDMDScore.addItem(animation)
-            animation.update()
-            Me.Score += 500
+            animation.addImage("C:\graphics\sf2\ken001.png")
+            animation.addImage("C:\graphics\sf2\ken002.png")
+            animation.addImage("C:\graphics\sf2\ken003.png")
+            animation.addImage("C:\graphics\sf2\ken004.png")
+            animation.addImage("C:\graphics\sf2\ken005.png")
+            animation.addImage("C:\graphics\sf2\ken006.png")
+            animation.addImage("C:\graphics\sf2\ken007.png")
+            animation.addImage("C:\graphics\sf2\ken008.png")
+            animation.addImage("C:\graphics\sf2\ken009.png")
+            animation.addImage("C:\graphics\sf2\ken010.png")
+            animation.addImage("C:\graphics\sf2\ken011.png")
+            animation.addImage("C:\graphics\sf2\ken012.png")
+            animation.addImage("C:\graphics\sf2\ken013.png")
+            animation.addImage("C:\graphics\sf2\ken014.png")
+            animation.addImage("C:\graphics\sf2\ken015.png")
+            animation.addImage("C:\graphics\sf2\ken016.png")
+            animation.Duration = 16
+            animation.Interval = 70
+            Me.PlayAnimation(animation)
         End If
+        Me.Score += 500
     End Sub
 
-    Private Sub OnEndAnimationBumper()
-        Me.mDMDScore.ShowItems()
-    End Sub
+    'Private Sub OnEndAnimationBumper()
+    'Me.mDMDScore.ShowItems()
+    'Me.mAnimationInProgress = False
+    'End Sub
 End Class
