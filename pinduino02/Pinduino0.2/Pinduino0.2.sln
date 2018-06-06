@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2015
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Pinduino0.2", "Pinduino0.2\Pinduino0.2.vbproj", "{A25C6A94-34CF-41F7-96AF-1F0383E2E1CB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A25C6A94-34CF-41F7-96AF-1F0383E2E1CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A25C6A94-34CF-41F7-96AF-1F0383E2E1CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A25C6A94-34CF-41F7-96AF-1F0383E2E1CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A25C6A94-34CF-41F7-96AF-1F0383E2E1CB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FE42C3D7-6924-44F8-910F-88DF4CA51889}
+	EndGlobalSection
+EndGlobal
