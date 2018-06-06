@@ -39,7 +39,8 @@ Partial Class FormPlayField
         'UserControlLaneRight
         '
         Me.UserControlLaneRight.Lane = Nothing
-        Me.UserControlLaneRight.Location = New System.Drawing.Point(311, 523)
+        Me.UserControlLaneRight.Location = New System.Drawing.Point(415, 644)
+        Me.UserControlLaneRight.Margin = New System.Windows.Forms.Padding(5)
         Me.UserControlLaneRight.Name = "UserControlLaneRight"
         Me.UserControlLaneRight.Size = New System.Drawing.Size(30, 120)
         Me.UserControlLaneRight.TabIndex = 13
@@ -47,7 +48,8 @@ Partial Class FormPlayField
         'UserControlLaneLeft
         '
         Me.UserControlLaneLeft.Lane = Nothing
-        Me.UserControlLaneLeft.Location = New System.Drawing.Point(50, 523)
+        Me.UserControlLaneLeft.Location = New System.Drawing.Point(67, 644)
+        Me.UserControlLaneLeft.Margin = New System.Windows.Forms.Padding(5)
         Me.UserControlLaneLeft.Name = "UserControlLaneLeft"
         Me.UserControlLaneLeft.Size = New System.Drawing.Size(30, 120)
         Me.UserControlLaneLeft.TabIndex = 13
@@ -55,7 +57,8 @@ Partial Class FormPlayField
         'UserControlLaneRightExit
         '
         Me.UserControlLaneRightExit.Lane = Nothing
-        Me.UserControlLaneRightExit.Location = New System.Drawing.Point(347, 556)
+        Me.UserControlLaneRightExit.Location = New System.Drawing.Point(463, 684)
+        Me.UserControlLaneRightExit.Margin = New System.Windows.Forms.Padding(5)
         Me.UserControlLaneRightExit.Name = "UserControlLaneRightExit"
         Me.UserControlLaneRightExit.Size = New System.Drawing.Size(30, 120)
         Me.UserControlLaneRightExit.TabIndex = 12
@@ -63,39 +66,44 @@ Partial Class FormPlayField
         'UserControlLaneLeftExit
         '
         Me.UserControlLaneLeftExit.Lane = Nothing
-        Me.UserControlLaneLeftExit.Location = New System.Drawing.Point(12, 556)
+        Me.UserControlLaneLeftExit.Location = New System.Drawing.Point(16, 684)
+        Me.UserControlLaneLeftExit.Margin = New System.Windows.Forms.Padding(5)
         Me.UserControlLaneLeftExit.Name = "UserControlLaneLeftExit"
         Me.UserControlLaneLeftExit.Size = New System.Drawing.Size(30, 120)
         Me.UserControlLaneLeftExit.TabIndex = 12
         '
         'UserControlSwitchSlingshotRight
         '
-        Me.UserControlSwitchSlingshotRight.Location = New System.Drawing.Point(275, 556)
+        Me.UserControlSwitchSlingshotRight.Location = New System.Drawing.Point(367, 684)
+        Me.UserControlSwitchSlingshotRight.Margin = New System.Windows.Forms.Padding(5)
         Me.UserControlSwitchSlingshotRight.Name = "UserControlSwitchSlingshotRight"
-        Me.UserControlSwitchSlingshotRight.Size = New System.Drawing.Size(30, 30)
+        Me.UserControlSwitchSlingshotRight.Size = New System.Drawing.Size(40, 37)
         Me.UserControlSwitchSlingshotRight.Switch = Nothing
         Me.UserControlSwitchSlingshotRight.TabIndex = 11
         '
         'UserControlSwitchSlingshotLeft
         '
-        Me.UserControlSwitchSlingshotLeft.Location = New System.Drawing.Point(86, 556)
+        Me.UserControlSwitchSlingshotLeft.Location = New System.Drawing.Point(115, 684)
+        Me.UserControlSwitchSlingshotLeft.Margin = New System.Windows.Forms.Padding(5)
         Me.UserControlSwitchSlingshotLeft.Name = "UserControlSwitchSlingshotLeft"
-        Me.UserControlSwitchSlingshotLeft.Size = New System.Drawing.Size(30, 30)
+        Me.UserControlSwitchSlingshotLeft.Size = New System.Drawing.Size(40, 37)
         Me.UserControlSwitchSlingshotLeft.Switch = Nothing
         Me.UserControlSwitchSlingshotLeft.TabIndex = 10
         '
         'UserControlSwitchBallExit
         '
-        Me.UserControlSwitchBallExit.Location = New System.Drawing.Point(180, 689)
+        Me.UserControlSwitchBallExit.Location = New System.Drawing.Point(240, 848)
+        Me.UserControlSwitchBallExit.Margin = New System.Windows.Forms.Padding(5)
         Me.UserControlSwitchBallExit.Name = "UserControlSwitchBallExit"
-        Me.UserControlSwitchBallExit.Size = New System.Drawing.Size(30, 30)
+        Me.UserControlSwitchBallExit.Size = New System.Drawing.Size(40, 37)
         Me.UserControlSwitchBallExit.Switch = Nothing
         Me.UserControlSwitchBallExit.TabIndex = 9
         '
         'UserControlBumper3
         '
         Me.UserControlBumper3.Bumper = Nothing
-        Me.UserControlBumper3.Location = New System.Drawing.Point(245, 277)
+        Me.UserControlBumper3.Location = New System.Drawing.Point(327, 341)
+        Me.UserControlBumper3.Margin = New System.Windows.Forms.Padding(5)
         Me.UserControlBumper3.Name = "UserControlBumper3"
         Me.UserControlBumper3.Size = New System.Drawing.Size(60, 60)
         Me.UserControlBumper3.TabIndex = 4
@@ -103,7 +111,8 @@ Partial Class FormPlayField
         'UserControlBumper2
         '
         Me.UserControlBumper2.Bumper = Nothing
-        Me.UserControlBumper2.Location = New System.Drawing.Point(165, 198)
+        Me.UserControlBumper2.Location = New System.Drawing.Point(220, 244)
+        Me.UserControlBumper2.Margin = New System.Windows.Forms.Padding(5)
         Me.UserControlBumper2.Name = "UserControlBumper2"
         Me.UserControlBumper2.Size = New System.Drawing.Size(60, 60)
         Me.UserControlBumper2.TabIndex = 3
@@ -111,7 +120,8 @@ Partial Class FormPlayField
         'UserControlBumper1
         '
         Me.UserControlBumper1.Bumper = Nothing
-        Me.UserControlBumper1.Location = New System.Drawing.Point(86, 277)
+        Me.UserControlBumper1.Location = New System.Drawing.Point(115, 341)
+        Me.UserControlBumper1.Margin = New System.Windows.Forms.Padding(5)
         Me.UserControlBumper1.Name = "UserControlBumper1"
         Me.UserControlBumper1.Size = New System.Drawing.Size(60, 60)
         Me.UserControlBumper1.TabIndex = 2
@@ -119,26 +129,28 @@ Partial Class FormPlayField
         'UserControlLanes1
         '
         Me.UserControlLanes1.Lanes = Nothing
-        Me.UserControlLanes1.Location = New System.Drawing.Point(120, 8)
+        Me.UserControlLanes1.Location = New System.Drawing.Point(160, 10)
+        Me.UserControlLanes1.Margin = New System.Windows.Forms.Padding(5)
         Me.UserControlLanes1.Name = "UserControlLanes1"
-        Me.UserControlLanes1.Size = New System.Drawing.Size(150, 150)
+        Me.UserControlLanes1.Size = New System.Drawing.Size(358, 185)
         Me.UserControlLanes1.TabIndex = 1
         '
         'UserControlTargets1
         '
         Me.UserControlTargets1.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.UserControlTargets1.Location = New System.Drawing.Point(86, 357)
+        Me.UserControlTargets1.Location = New System.Drawing.Point(115, 439)
+        Me.UserControlTargets1.Margin = New System.Windows.Forms.Padding(5)
         Me.UserControlTargets1.Name = "UserControlTargets1"
-        Me.UserControlTargets1.Size = New System.Drawing.Size(219, 64)
+        Me.UserControlTargets1.Size = New System.Drawing.Size(292, 79)
         Me.UserControlTargets1.TabIndex = 0
         Me.UserControlTargets1.Targets = Nothing
         '
         'FormPlayField
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.ClientSize = New System.Drawing.Size(471, 724)
+        Me.ClientSize = New System.Drawing.Size(628, 864)
         Me.Controls.Add(Me.UserControlLaneRight)
         Me.Controls.Add(Me.UserControlLaneLeft)
         Me.Controls.Add(Me.UserControlLaneRightExit)
@@ -151,6 +163,7 @@ Partial Class FormPlayField
         Me.Controls.Add(Me.UserControlBumper1)
         Me.Controls.Add(Me.UserControlLanes1)
         Me.Controls.Add(Me.UserControlTargets1)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "FormPlayField"
         Me.Text = "FormPlayField"
         Me.ResumeLayout(False)

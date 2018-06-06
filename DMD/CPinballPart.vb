@@ -19,13 +19,13 @@ Public Class CPinballPartBoolean
             If mState Then
                 RaiseEvent SwitchOn(Me)
             Else
-                RaiseEvent SwitchOff()
+                RaiseEvent SwitchOff(Me)
             End If
         End Set
     End Property
 
     Public Event SwitchOn(e As CPinballPart)
-    Public Event SwitchOff()
+    Public Event SwitchOff(e As CPinballPart)
 
     Public Overrides Sub reset()
         MyBase.reset()
@@ -161,7 +161,7 @@ Public Class CPinballPartLane
         AddHandler mSwitch.SwitchOff, AddressOf Me.OnSwitchOff
     End Sub
 
-    Private Sub OnSwitchOff()
+    Private Sub OnSwitchOff(e As CPinballPart)
         mLamp.State = False
         RaiseEvent OnSwitchChange(Me, False)
     End Sub
@@ -293,7 +293,17 @@ End Class
 Public Class CPinballPartBumper
     Inherits CPinballPartBoolean
 
+    Protected Property mId As Integer
     Protected Property mSwitch As New CPinballPartSwitch
+
+    Public Property Id As Integer
+        Get
+            Return mId
+        End Get
+        Set(value As Integer)
+            mId = value
+        End Set
+    End Property
 
     Public ReadOnly Property Switch As CPinballPartSwitch
         Get
@@ -301,7 +311,7 @@ Public Class CPinballPartBumper
         End Get
     End Property
 
-    Public Event OnHit()
+    Public Event OnHit(id As Integer)
 
     Public Sub New()
         AddHandler mSwitch.SwitchOn, AddressOf BumperSwitchOn
@@ -319,6 +329,52 @@ Public Class CPinballPartBumper
     Public Sub Hit()
         mSwitch.State = False
         Me.State = mSwitch.State
-        RaiseEvent OnHit()
+        RaiseEvent OnHit(Me.Id)
+    End Sub
+End Class
+
+Public Class CPinballPartSwitchPinduino
+    Inherits CPinballPartSwitch
+
+    Protected Property mCode As String
+    Protected Property mAction As String
+    Protected Property mIncScore As Integer = 0
+
+    Public Property IncScore As Integer
+        Get
+            Return mIncScore
+        End Get
+        Set(value As Integer)
+            mIncScore = value
+        End Set
+    End Property
+
+    Public Property Code As String
+        Get
+            Return mCode
+        End Get
+        Set(value As String)
+            mCode = value
+        End Set
+    End Property
+
+    Public Property Action As String
+        Get
+            Return mAction
+        End Get
+        Set(value As String)
+            mAction = value
+        End Set
+    End Property
+
+    Public Sub New()
+        MyBase.New
+    End Sub
+
+    Public Sub New(code As String, action As String, Optional incScore As Integer = 0)
+        MyBase.New
+        Me.Code = code
+        Me.Action = action
+        Me.IncScore = incScore
     End Sub
 End Class

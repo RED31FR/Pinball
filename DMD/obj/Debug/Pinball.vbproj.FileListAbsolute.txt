@@ -19,3 +19,4 @@ C:\repo\Pinball\DMD\obj\Debug\Pinball.UserControlBumper.resources
 C:\repo\Pinball\DMD\obj\Debug\Pinball.FormPlayField.resources
 C:\repo\Pinball\DMD\obj\Debug\Pinball.UserControlSwitch.resources
 C:\repo\Pinball\DMD\obj\Debug\Pinball.UserControlTarget.resources
+C:\repo\Pinball\DMD\obj\Debug\Pinball.vbprojResolveAssemblyReference.cache

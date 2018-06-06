@@ -30,7 +30,8 @@ Partial Class UserControlLane
         'Switch
         '
         Me.Switch.BackgroundImage = CType(resources.GetObject("Switch.BackgroundImage"), System.Drawing.Image)
-        Me.Switch.Location = New System.Drawing.Point(0, 36)
+        Me.Switch.Location = New System.Drawing.Point(0, 44)
+        Me.Switch.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Switch.Name = "Switch"
         Me.Switch.Size = New System.Drawing.Size(30, 80)
         Me.Switch.TabIndex = 1
@@ -40,18 +41,20 @@ Partial Class UserControlLane
         '
         Me.UserControlLamp1.Lamp = Nothing
         Me.UserControlLamp1.Location = New System.Drawing.Point(0, 0)
+        Me.UserControlLamp1.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
         Me.UserControlLamp1.Name = "UserControlLamp1"
         Me.UserControlLamp1.Size = New System.Drawing.Size(30, 30)
         Me.UserControlLamp1.TabIndex = 2
         '
         'UserControlLane
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.UserControlLamp1)
         Me.Controls.Add(Me.Switch)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "UserControlLane"
-        Me.Size = New System.Drawing.Size(32, 115)
+        Me.Size = New System.Drawing.Size(43, 142)
         Me.ResumeLayout(False)
 
     End Sub

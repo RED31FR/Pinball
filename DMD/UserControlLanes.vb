@@ -26,6 +26,7 @@
                     height = control.Height
                     widthNbLanes += control.Width + 10
                 Next
+                Me.Width = x + 100
                 x = 0
                 mLamps = mLanes.Lamps
                 For Each lamp In Me.mLamps

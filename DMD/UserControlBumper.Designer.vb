@@ -32,6 +32,7 @@ Partial Class UserControlBumper
         Me.BumperPicture.BackColor = System.Drawing.Color.Yellow
         Me.BumperPicture.BackgroundImage = CType(resources.GetObject("BumperPicture.BackgroundImage"), System.Drawing.Image)
         Me.BumperPicture.Location = New System.Drawing.Point(0, 0)
+        Me.BumperPicture.Margin = New System.Windows.Forms.Padding(4)
         Me.BumperPicture.Name = "BumperPicture"
         Me.BumperPicture.Size = New System.Drawing.Size(60, 60)
         Me.BumperPicture.TabIndex = 0
@@ -39,10 +40,12 @@ Partial Class UserControlBumper
         '
         'UserControlBumper
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.BumperPicture)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "UserControlBumper"
+        Me.Size = New System.Drawing.Size(66, 65)
         CType(Me.BumperPicture, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 

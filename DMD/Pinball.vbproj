@@ -91,6 +91,7 @@
     <Compile Include="CPinball.vb" />
     <Compile Include="CPinballEvent.vb" />
     <Compile Include="CPinballPart.vb" />
+    <Compile Include="CPinduino.vb" />
     <Compile Include="FormDMD.Designer.vb">
       <DependentUpon>FormDMD.vb</DependentUpon>
     </Compile>

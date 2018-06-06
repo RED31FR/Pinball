@@ -25,7 +25,7 @@ Public Class FormPlayField
     Public Event OnOneTargetDrop(index As Integer)
     Public Event OnAllTargetsDrop()
 
-    Public Event OnBumperHit()
+    Public Event OnBumperHit(id As Integer)
 
     Public Event OnSlingShot()
 
@@ -38,6 +38,9 @@ Public Class FormPlayField
         UserControlBumper1.Bumper = mBumper1
         UserControlBumper2.Bumper = mBumper2
         UserControlBumper3.Bumper = mBumper3
+        mBumper1.Id = 1
+        mBumper2.Id = 2
+        mBumper3.Id = 3
         UserControlSwitchBallExit.Switch = mSwitchBallOut
         UserControlSwitchSlingshotLeft.Switch = mSwitchSlingshotLeft
         UserControlSwitchSlingshotRight.Switch = mSwitchSlingshotRight
@@ -83,8 +86,8 @@ Public Class FormPlayField
         RaiseEvent OnSlingShot()
     End Sub
 
-    Private Sub On_BumperHit()
-        RaiseEvent OnBumperHit()
+    Private Sub On_BumperHit(id As Integer)
+        RaiseEvent OnBumperHit(id)
     End Sub
 
     Private Sub On_AllTargetsDrop()
